@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "weekly-analytics"
+version = "0.1.0"
+authors = [
+    {name = "Izzaz Iskandar", email = "izzaz@time.com.my"},
+]
+description = "Weekly analytics dashboard and reports"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "pandas",
+    "pymongo",
+]
+
+[project.optional-dependencies]
+dev = [
+    "jupyter",
+    "seaborn",
+    "matplotlib",
+    "pytest",
+    "black",
+    "flake8",
+    "isort",
+]
+
+[tool.black]
+line-length = 88
+target-version = ["py38"]
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
